@@ -1,8 +1,24 @@
+
+
 def intersection(arrays):
     """
     YOUR CODE HERE
     """
     # Your code here
+    cache = {}
+
+    for subarray in arrays:
+        for item in subarray:
+            if item not in cache:
+                cache[item] = 0
+            else:
+                cache[item] +=1
+
+    result = []
+
+    for key in cache:
+        if cache[key] == len(arrays) - 1:
+            result.append(key)
 
     return result
 
